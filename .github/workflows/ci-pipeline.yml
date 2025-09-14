@@ -23,15 +23,17 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build sample image
-        run: |
-          docker build -t myorg/sample-app:ci-${{ github.run_id }} ./exercises/02-containerize-app/app
+- name: Build sample image
+  run: |
+    docker build --build-arg BUILD_ID=${{ github.run_id }} \
+                 -t myorg/sample-app:ci-${{ github.run_id }} \
+                 ./exercises/02-containerize-app/app
 
-      - name: Upload linux artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: linux-app-source
-          path: ./exercises/02-containerize-app/app
+- name: Upload linux artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: linux-app-source
+    path: ./exercises/02-containerize-app/app
 
   build-windows:
     name: Build on Windows
