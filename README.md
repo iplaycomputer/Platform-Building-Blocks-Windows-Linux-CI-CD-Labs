@@ -1,6 +1,6 @@
 # Platform Building Blocks: Windows + Linux CI/CD Labs
 
-[![Last Commit](https://img.shields.io/github/last-commit/OWNER/REPO)](https://github.com/OWNER/REPO/commits) [![Exercises verified](https://img.shields.io/badge/exercises-7_verified-brightgreen)](./exercises/)
+![last commit](https://img.shields.io/github/last-commit/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs) [![Exercises verified](https://img.shields.io/badge/exercises-7_verified-brightgreen)](./exercises/)
 
 Languages  
 🇺🇸 English
