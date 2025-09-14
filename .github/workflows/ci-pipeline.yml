@@ -48,6 +48,7 @@ jobs:
         run: |
           Write-Host "Windows build step (placeholder)"
           New-Item -ItemType Directory -Force -Path .\artifacts\windows
+          Set-Content -Path .\artifacts\windows\placeholder.txt -Value "windows artifact placeholder — $env:GITHUB_RUN_ID"
 
       - name: Upload windows artifact
         uses: actions/upload-artifact@v4
