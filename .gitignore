@@ -1,0 +1,30 @@
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# secrets
+secrets*.tfvars
+*.env
+*.pem
+*.key
+
+# runner artifacts / local runner installs
+actions-runner/
+runs/
+
+# Vagrant / VirtualBox
+.vagrant/
+*.box
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# node / python / logs
+node_modules/
+__pycache__/
+*.log
