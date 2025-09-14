@@ -25,7 +25,8 @@ jobs:
         
 - name: Build sample image
   run: |
-    docker build --build-arg BUILD_ID=${{ github.run_id }} \
+    docker build \
+      --build-arg BUILD_ID=${{ github.run_id }} \
       -t myorg/sample-app:ci-${{ github.run_id }} \
       ./exercises/02-containerize-app/app
 
