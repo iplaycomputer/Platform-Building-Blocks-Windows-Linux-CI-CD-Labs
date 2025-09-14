@@ -1,11 +1,20 @@
 # Platform Building Blocks: Windows + Linux CI/CD Labs
 
-![last commit](https://img.shields.io/github/last-commit/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs) [![Exercises verified](https://img.shields.io/badge/exercises-7_verified-brightgreen)](./exercises/)
+![last commit](https://img.shields.io/github/last-commit/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs) 
+[![Exercises verified](https://img.shields.io/badge/exercises-7_verified-brightgreen)](./exercises/) 
+![Lab Status](https://img.shields.io/badge/lab--status-in_progress-orange) 
+![Open Issues](https://img.shields.io/github/issues/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs)
+![Closed Issues](https://img.shields.io/github/issues-closed/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs)
+![Repo Size](https://img.shields.io/github/repo-size/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs)
 
-Languages  
+---
+
+### Languages  
 🇺🇸 English
 
-Hands-on labs to learn cross-platform CI/CD. Target: junior sysadmins, DevOps, infra engineers. Each exercise is a short, verifiable lab with commands and expected output.
+Hands-on labs to learn cross-platform CI/CD.  
+Target: junior sysadmins, DevOps, infra engineers.  
+Each exercise is a short, verifiable lab.
 
 
 ---
