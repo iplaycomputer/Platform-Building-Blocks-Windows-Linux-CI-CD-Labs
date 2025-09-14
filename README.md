@@ -1,4 +1,4 @@
-# Platform Building Blocks: Windows + Linux CI/CD Labs
+![Platform Building Blocks](Gradient%20Modern%20Technology%20Company%20Developers%20Logo.png)
 
 ![last commit](https://img.shields.io/github/last-commit/iplaycomputer/Platform-Building-Blocks-Windows-Linux-CI-CD-Labs) 
 [![Exercises verified](https://img.shields.io/badge/exercises-7_verified-brightgreen)](./exercises/) 
