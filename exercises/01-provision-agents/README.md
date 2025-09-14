@@ -6,30 +6,47 @@ Provision one Windows VM and one Linux VM and register them as CI runners.
 **Estimated time**  
 45–90 minutes
 
-**Prereqs**  
-- Cloud account (Azure/AWS/GCP) or local hypervisor (VirtualBox / Hyper-V)  
-- `git`, `ssh`, `pwsh` (PowerShell 7+) and basic CLI skills  
-- GitHub repo with Actions enabled (or GitLab/GitHub runner token)
+## Prereqs
+- Cloud account (Azure / AWS / GCP) or local hypervisor (VirtualBox / Hyper-V)  
+- `git`, `ssh`, `pwsh` (PowerShell 7+)  
+- GitHub repo with Actions enabled (or equivalent CI and runner token)  
+- Admin access to create VMs and register runners
 
 ## Deliverables
 - `infra/` (Terraform or Vagrant examples)  
 - `scripts/register-runner.sh` (Linux)  
 - `scripts/register-runner.ps1` (Windows)  
-- screenshot or CI UI proof showing runners registered and tagged `windows-build` / `linux-build`
+- Proof of registration: screenshot or CI UI showing runners tagged `windows-build` and `linux-build`
 
-## Steps (high level)
-1. Choose path: Cloud (Terraform) or Local (Vagrant). See `exercises/00-overview/decision-matrix.md`.  
-2. For Cloud: `cd infra && terraform init && terraform apply -var-file=secrets.tfvars`.  
-3. For Local: `vagrant up` (uses `infra/Vagrantfile`).  
-4. SSH / RDP into provisioned VMs and run the registration script for each runner:
-   - Linux: `bash scripts/register-runner.sh`
-   - Windows (pwsh): `pwsh .\scripts\register-runner.ps1`
-5. Verify runners appear in GitHub Actions self-hosted runners page with tags.
+## High-level steps
+1. Pick path based on `exercises/00-overview/decision-matrix.md`: **Cloud (Terraform)** or **Local (Vagrant)**.  
+2. Provision infra:
+   - Cloud (Terraform):  
+     ```bash
+     cd exercises/01-provision-agents/infra
+     terraform init
+     terraform apply -var-file=secrets.example.tfvars
+     ```
+   - Local (Vagrant):  
+     ```bash
+     cd exercises/01-provision-agents/infra
+     vagrant up
+     ```
+3. Connect to VMs (SSH for Linux, RDP for Windows).  
+4. Register runners on each VM:
+   - Linux:
+     ```bash
+     sudo bash scripts/register-runner.sh
+     ```
+   - Windows (PowerShell):
+     ```powershell
+     pwsh .\scripts\register-runner.ps1 -RunnerUrl "<RUNNER_URL>" -RunnerToken "<RUNNER_TOKEN>"
+     ```
+5. Verify runners appear in your CI UI with correct tags.
 
 ## Verification
 - GitHub Actions UI shows two self-hosted runners with tags `windows-build` and `linux-build`.  
-- Example verification command (Linux): `curl -sS https://api.github.com/repos/<owner>/<repo>/actions/runners` (requires token).
-
-## Notes
-- Do not commit secrets or runner tokens. Use `secrets.example.env` as a template.
-- Provide a `terraform destroy` or `vagrant destroy` step in `infra/` to teardown resources.
+- (Optional) API check (requires token):
+  ```bash
+  curl -sS -H "Authorization: token $TOKEN" \
+    "https://api.github.com/repos/<OWNER>/<REPO>/actions/runners" | jq .
